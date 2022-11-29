@@ -32,14 +32,15 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             }
             cards[choosenIndex].isFaceUp.toggle()
         }
-        print("\(cards)")
+//        print("\(cards)")
     }
     
     init (numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
         cards = Array<Card>()
         // add numBerOfPairsCars x 2 cards to cards array
         for pairIndex in 0..<numberOfPairsOfCards {
-            let content = createCardContent(pairIndex )
+            let content = createCardContent(pairIndex)
+//            print("\(content)")
             cards.append(Card(content: content, id: pairIndex*2))
             cards.append(Card(content: content, id: pairIndex*2+1))
         }
@@ -51,7 +52,5 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         var isMatched : Bool = false
         var content : CardContent
         var id: Int
-        
-
     }
 }
