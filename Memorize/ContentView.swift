@@ -6,35 +6,32 @@
 //
 
 import SwiftUI
- 
+
 struct ContentView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-/*
- 
         NavigationView {
-            Text("SwiftUI")
-                .navigationTitle("Name of Theme")
-                .toolbar {
-                    Button("New Game") {
+            VStack{
+                ScrollView{
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
+                        ForEach (viewModel.cards) { card in
+                            CardView(card: card)
+                                .aspectRatio(2/3, contentMode: .fit)
+                                .onTapGesture {
+                                    viewModel.choose(card)
+                                }
+                        }
                     }
                 }
-        }
- */
-        NavigationView {
-            ScrollView{
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
-                    ForEach (viewModel.cards) { card in
-                        CardView(card: card)
-                            .aspectRatio(2/3, contentMode: .fit)
-                            .onTapGesture {
-                                viewModel.choose(card)
-                            }
-                    }
+                HStack{
+                    Text(viewModel.score)
                 }
+                .padding(.horizontal)
+                .foregroundColor(.black)
+                .font(.largeTitle)
             }
-            .foregroundColor(.red)
+            .foregroundColor(viewModel.currentTheme.color)
             .padding(.horizontal)
             .navigationTitle(viewModel.currentTheme.name)
             .toolbar {
@@ -43,13 +40,12 @@ struct ContentView: View {
                 }
             }
         }
-
     }
 }
 
 struct CardView: View {
     let card: MemoryGame<String>.Card
-
+    
     var body: some View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 20)
@@ -69,7 +65,7 @@ struct CardView: View {
 }
 
 
- 
+
 
 
 
