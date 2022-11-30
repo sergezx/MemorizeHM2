@@ -24,12 +24,13 @@ struct ContentView: View {
                         }
                     }
                 }
-                HStack{
+                VStack{
                     Text(viewModel.score)
+                        .font(.largeTitle)
+                    Text("Your score")
                 }
                 .padding(.horizontal)
                 .foregroundColor(.black)
-                .font(.largeTitle)
             }
             .foregroundColor(viewModel.currentTheme.color)
             .padding(.horizontal)
