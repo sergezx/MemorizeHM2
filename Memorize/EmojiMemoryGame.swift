@@ -44,8 +44,8 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     init() {
-        var randomTheme = themes.randomElement()!
-        var emojis = randomTheme.emojis.shuffled()
+        let randomTheme = themes.randomElement()!
+        let emojis = randomTheme.emojis.shuffled()
         
         self.model = Self.createMemoryGame(theme: randomTheme, emojis: emojis)
         self.currentTheme = randomTheme
@@ -59,7 +59,7 @@ class EmojiMemoryGame: ObservableObject {
     
     func newGame ()->Void {
         currentTheme = themes.randomElement()!
-        var emojis = currentTheme.emojis.shuffled()
+        let emojis = currentTheme.emojis.shuffled()
         model = EmojiMemoryGame.createMemoryGame(theme: currentTheme, emojis: emojis)
     }
     
