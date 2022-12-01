@@ -8,7 +8,24 @@
 import SwiftUI
 
 class EmojiMemoryGame: ObservableObject {
-    
+
+    enum ColorsOfTheme: String {
+       case Red
+       case Gold
+       case LimeGreen
+
+        var create: Int {
+           switch self {
+              case .Red:
+                return 0xFF0000
+            case .Gold:
+                return 0xFFD700
+            case .LimeGreen:
+                return 0x008000
+           }
+        }
+      }
+
     let themes = [
         Theme(
             name: "Vehicle",
@@ -67,24 +84,7 @@ class EmojiMemoryGame: ObservableObject {
         let emojis = currentTheme.emojis.shuffled()
         model = EmojiMemoryGame.createMemoryGame(theme: currentTheme, emojis: emojis)
     }
-    
-    enum ColorsOfTheme: String {
-       case Red
-       case Gold
-       case LimeGreen
-
-        var create: Int {
-           switch self {
-              case .Red:
-                return 0xFF0000
-            case .Gold:
-                return 0xFFD700
-            case .LimeGreen:
-                return 0x008000
-           }
-        }
-      }
-    
+        
     struct Theme {
         var name: String
         var emojis: [String]
