@@ -10,19 +10,34 @@ import SwiftUI
 class EmojiMemoryGame: ObservableObject {
 
     enum ColorsOfTheme: String {
-       case Red
-       case Gold
-       case LimeGreen
+        case Red
+        case Gold
+        case LimeGreen
+        case DeepPink
+        case MediumVioletRed
+        case OrangeRed
+        case DarkMagenta
+        case Turquoise
 
         var create: Int {
            switch self {
-              case .Red:
-                return 0xFF0000
-            case .Gold:
-                return 0xFFD700
-            case .LimeGreen:
-                return 0x008000
-           }
+           case .Red:
+               return 0xFF0000
+           case .Gold:
+               return 0xFFD700
+           case .LimeGreen:
+               return 0x008000
+           case .DeepPink:
+               return 0xFF1493
+           case .MediumVioletRed:
+               return 0xC71585
+           case .OrangeRed:
+               return 0xFF4500
+           case .DarkMagenta:
+               return 0x8B008B
+           case .Turquoise:
+               return 0x40E0D0
+          }
         }
       }
 
@@ -34,7 +49,7 @@ class EmojiMemoryGame: ObservableObject {
             color: ColorsOfTheme.Red.create
         ),
         Theme(
-            name: "Smiles",
+            name: "Faces",
             emojis: ["😀", "😃", "😄", "😁", "😆", "🥹", "😅", "😂", "🤣", "🥲", "☺️", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘"],
             numberOfCardPairs: 5,
             color: ColorsOfTheme.Gold.create
@@ -44,6 +59,30 @@ class EmojiMemoryGame: ObservableObject {
             emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐻‍❄️", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊"],
             numberOfCardPairs: 5,
             color: ColorsOfTheme.LimeGreen.create
+        ),
+        Theme(
+            name: "Halloween",
+            emojis: ["😈", "👿", "👻", "💀", "☠️", "👽", "🎃", "👀", "🕷", "🥸", "😱", "😤", "🙀", "🧛", "🕸", "🦖", "🦍", "🌚"],
+            numberOfCardPairs: 5,
+            color: ColorsOfTheme.DeepPink.create
+        ),
+        Theme(
+            name: "Flags",
+            emojis: ["🏴‍☠️", "🏴‍☠️", "🏁", "🚩", "🇦🇿", "🏳️‍🌈", "🏳️‍⚧️", "🇺🇳", "🇦🇺", "🇦🇹", "🇦🇽", "🇦🇱", "🇩🇿", "🇦🇸", "🇦🇮", "🇦🇴", "🇦🇩", "🇦🇶", "🇦🇬", "🇦🇷", "🇦🇲", "🇦🇼", "🇮🇴", "🇦🇫", "🇧🇸", "🇧🇩", "🇧🇧", "🇧🇭", "🇧🇾", "🇧🇿", "🇧🇪", "🇧🇲", "🇧🇬", "🇧🇴", "🇧🇶", "🇧🇦", "🇧🇼", "🇧🇷", "🇧🇯"],
+            numberOfCardPairs: 5,
+            color: ColorsOfTheme.MediumVioletRed.create
+        ),
+        Theme(
+            name: "Food",
+            emojis: ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🫐", "🍈", "🍒", "🍑", "🥭", "🍍", "🥥", "🥝", "🍅", "🍆", "🥑", "🥦", "🥬", "🥒", "🫑", "🌶", "🌽", "🥕", "🫒", "🧄", "🧅", "🥔", "🥐", "🍠", "🥯", "🍞", "🥖", "🥨", "🧀", "🥚", "🍳", "🧈", "🥞", "🧇", "🥓", "🥩"],
+            numberOfCardPairs: 5,
+            color: ColorsOfTheme.OrangeRed.create
+        ),
+        Theme(
+            name: "Places",
+            emojis: ["🗿", "🗽", "🗼", "🏰", "🏯", "🏟", "🎡", "🎢", "🎠", "⛲️", "🏖", "🏝", "🏜", "🌋", "⛰", "🏔", "🗻", "🏕", "🛖", "⛺️", "🗺", "🏞", "🌅", "🌄", "🌁"],
+            numberOfCardPairs: 5,
+            color: ColorsOfTheme.Turquoise.create
         ),
     ]
     
