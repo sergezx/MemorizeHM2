@@ -9,33 +9,33 @@ import SwiftUI
 
 class EmojiMemoryGame: ObservableObject {
 
-    enum ColorsOfTheme: String {
-        case Red
-        case Gold
-        case LimeGreen
-        case DeepPink
-        case MediumVioletRed
-        case OrangeRed
-        case DarkMagenta
-        case Turquoise
+    enum ThemeColors: String {
+        case red
+        case gold
+        case limeGreen
+        case deepPink
+        case mediumVioletRed
+        case orangeRed
+        case darkMagenta
+        case turquoise
 
         var create: Int {
            switch self {
-           case .Red:
+           case .red:
                return 0xFF0000
-           case .Gold:
+           case .gold:
                return 0xFFD700
-           case .LimeGreen:
+           case .limeGreen:
                return 0x008000
-           case .DeepPink:
+           case .deepPink:
                return 0xFF1493
-           case .MediumVioletRed:
+           case .mediumVioletRed:
                return 0xC71585
-           case .OrangeRed:
+           case .orangeRed:
                return 0xFF4500
-           case .DarkMagenta:
+           case .darkMagenta:
                return 0x8B008B
-           case .Turquoise:
+           case .turquoise:
                return 0x40E0D0
           }
         }
@@ -46,43 +46,43 @@ class EmojiMemoryGame: ObservableObject {
             name: "Vehicle",
             emojis: ["👻", "✈️", "🗿", "🚀", "🚅", "🛫", "🚔", "🏍", "⛱", "🚌", "🛺", "🛞", "🚲", "🚠", "🚟", "🚂", "🚇", "🚊", "⛵️", "🚁", "🛸", "🛳", "🏎"],
             numberOfCardPairs: 5,
-            color: ColorsOfTheme.Red.create
+                        colorCode: ThemeColors.red.create
         ),
         Theme(
             name: "Faces",
             emojis: ["😀", "😃", "😄", "😁", "😆", "🥹", "😅", "😂", "🤣", "🥲", "☺️", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘"],
             numberOfCardPairs: 5,
-            color: ColorsOfTheme.Gold.create
+                        colorCode: ThemeColors.gold.create
         ),
         Theme(
             name: "Animals",
             emojis: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐻‍❄️", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊"],
             numberOfCardPairs: 5,
-            color: ColorsOfTheme.LimeGreen.create
+                        colorCode: ThemeColors.limeGreen.create
         ),
         Theme(
             name: "Halloween",
             emojis: ["😈", "👿", "👻", "💀", "☠️", "👽", "🎃", "👀", "🕷", "🥸", "😱", "😤", "🙀", "🧛", "🕸", "🦖", "🦍", "🌚"],
             numberOfCardPairs: 5,
-            color: ColorsOfTheme.DeepPink.create
+                        colorCode: ThemeColors.deepPink.create
         ),
         Theme(
             name: "Flags",
             emojis: ["🏴‍☠️", "🏴‍☠️", "🏁", "🚩", "🇦🇿", "🏳️‍🌈", "🏳️‍⚧️", "🇺🇳", "🇦🇺", "🇦🇹", "🇦🇽", "🇦🇱", "🇩🇿", "🇦🇸", "🇦🇮", "🇦🇴", "🇦🇩", "🇦🇶", "🇦🇬", "🇦🇷", "🇦🇲", "🇦🇼", "🇮🇴", "🇦🇫", "🇧🇸", "🇧🇩", "🇧🇧", "🇧🇭", "🇧🇾", "🇧🇿", "🇧🇪", "🇧🇲", "🇧🇬", "🇧🇴", "🇧🇶", "🇧🇦", "🇧🇼", "🇧🇷", "🇧🇯"],
             numberOfCardPairs: 5,
-            color: ColorsOfTheme.MediumVioletRed.create
+                        colorCode: ThemeColors.mediumVioletRed.create
         ),
         Theme(
             name: "Food",
             emojis: ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🫐", "🍈", "🍒", "🍑", "🥭", "🍍", "🥥", "🥝", "🍅", "🍆", "🥑", "🥦", "🥬", "🥒", "🫑", "🌶", "🌽", "🥕", "🫒", "🧄", "🧅", "🥔", "🥐", "🍠", "🥯", "🍞", "🥖", "🥨", "🧀", "🥚", "🍳", "🧈", "🥞", "🧇", "🥓", "🥩"],
             numberOfCardPairs: 5,
-            color: ColorsOfTheme.OrangeRed.create
+                        colorCode: ThemeColors.orangeRed.create
         ),
         Theme(
             name: "Places",
             emojis: ["🗿", "🗽", "🗼", "🏰", "🏯", "🏟", "🎡", "🎢", "🎠", "⛲️", "🏖", "🏝", "🏜", "🌋", "⛰", "🏔", "🗻", "🏕", "🛖", "⛺️", "🗺", "🏞", "🌅", "🌄", "🌁"],
             numberOfCardPairs: 5,
-            color: ColorsOfTheme.Turquoise.create
+                        colorCode: ThemeColors.turquoise.create
         ),
     ]
     
@@ -114,11 +114,11 @@ class EmojiMemoryGame: ObservableObject {
     
     // MARK: Intent(s)
     
-    func choose (_ card: MemoryGame<String>.Card) {
+    func choose(_ card: MemoryGame<String>.Card) {
         model.choose(card)
     }
     
-    func newGame ()->Void {
+    func newGame()->Void {
         currentTheme = themes.randomElement()!
         let emojis = currentTheme.emojis.shuffled()
         model = EmojiMemoryGame.createMemoryGame(theme: currentTheme, emojis: emojis)
@@ -130,15 +130,15 @@ class EmojiMemoryGame: ObservableObject {
         var numberOfCardPairs: Int
         var color: Color
         
-        init (name: String, emojis: [String], numberOfCardPairs: Int, color: Int ) {
+        init(name: String, emojis: [String], numberOfCardPairs: Int, colorCode: Int ) {
             self.name = name
             self.emojis = emojis
             self.numberOfCardPairs = min(numberOfCardPairs, emojis.count)
-            self.color = colorFromHex(hex: color )
+            self.color = colorFromHex(hex: colorCode )
         }
     }
-    static func colorFromHex(hex: Int) -> Color {
-        return Color(
+    private static func colorFromHex(hex: Int) -> Color {
+        Color(
             red: Double((hex & 0xFF0000) >> 16) / 255.0,
             green: Double((hex & 0x00FF00) >> 8) / 255.0,
             blue: Double(hex & 0x0000FF) / 255.0

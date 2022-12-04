@@ -22,13 +22,13 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 if cards[choosenIndex].content == cards[potentioalMatchIndex].content {
                     cards[choosenIndex].isMatched = true
                     cards[potentioalMatchIndex].isMatched = true
-                    score+=2
+                    score += 2
                 } else {
                     if cards[choosenIndex].isAlreadyBeenSeen {
-                        score-=1
+                        score -= 1
                     }
                     if cards[potentioalMatchIndex].isAlreadyBeenSeen {
-                        score-=1
+                        score -= 1
                     }
                     cards[choosenIndex].isAlreadyBeenSeen = true
                     cards[potentioalMatchIndex].isAlreadyBeenSeen = true
@@ -46,7 +46,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
 //        print("\(cards)")
     }
     
-    init (numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
+    init(numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
         cards = Array<Card>()
         // add numBerOfPairsCars x 2 cards to cards array
         for pairIndex in 0..<numberOfPairsOfCards {
